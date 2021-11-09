@@ -39,6 +39,7 @@
                   alert("Copied to clipboard!");
               })
               .catch(function (error) {
+                  console.error(error);
                   alert(error);
               });
           }
