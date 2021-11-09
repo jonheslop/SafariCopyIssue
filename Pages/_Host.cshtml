@@ -45,8 +45,8 @@
           },
           setOnClickCopyText: function (text, elementId) {
                 const button = document.getElementById(elementId)
-                button.onclick = _ => clipboardCopy.copyText(text)
-            }
+                button.onclick = _ => this.copyText(text)
+          }
       };
     </script>
 </body>
