@@ -15,6 +15,17 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link href="css/site.css" rel="stylesheet" />
     <link href="SafariCopyIssue.styles.css" rel="stylesheet" />
+    
+    <script>
+      const applyUrl = url => _ => clipboardCopy.copyText(url)
+      
+      function SetCopyUrl(url) {
+        const f = applyUrl(url)
+        const button = document.getElementById("copy-button")
+        button.onclick = f
+      }
+      
+    </script>
 </head>
 <body>
     <component type="typeof(App)" render-mode="ServerPrerendered" />
