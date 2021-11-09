@@ -9,11 +9,20 @@
   <li>In other browsers you will get 'Hello world' copied to your clipboard successfully</li>
 </ul>
 
-<button class="btn btn-primary" type="button" @onclick="CopyTextToClipboard">Copy 'Hello world'</button>
+<button id="copy-button" class="btn btn-primary" type="button">Copy '@_url'</button>
 
 @code {
-  private async Task CopyTextToClipboard()
+  private string _url = "Hello, world!";
+  
+  protected override async Task OnAfterRenderAsync(bool firstRender)
   {
-    await JSRuntime.InvokeVoidAsync("clipboardCopy.copyText", "Hello world");
+    await base.OnAfterRenderAsync(firstRender);
+    
+    if (!firstRender)
+    {
+      return;
+    }
+
+    await JSRuntime.InvokeVoidAsync("clipboardCopy.setOnClickCopyText", _url, "copy-button");
   }
 }

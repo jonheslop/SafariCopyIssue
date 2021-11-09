@@ -42,6 +42,10 @@
                   console.error(error);
                   alert(error);
               });
+          },
+          setOnClickCopyText: function (text, elementId) {
+                const button = document.getElementById(elementId)
+                button.onclick = _ => this.copyText(text)
           }
       };
     </script>
