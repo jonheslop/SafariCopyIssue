@@ -1,7 +1,13 @@
 @page "/"
+@inject IJSRuntime JSRuntime
 
-<h1>Hello, world!</h1>
+<h1>Safari copy bug</h1>
 
-Welcome to your new app.
+<button class="btn btn-primary" type="button" @onclick="CopyTextToClipboard">Copy 'Hello world'</button>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+  private async Task CopyTextToClipboard()
+  {
+    await JSRuntime.InvokeVoidAsync("clipboardCopy.copyText", "Hello world");
+  }
+}
