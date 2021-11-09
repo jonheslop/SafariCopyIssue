@@ -23,6 +23,6 @@
       return;
     }
 
-    await JSRuntime.InvokeVoidAsync("SetCopyUrl", _url, "copy-button");
+    await JSRuntime.InvokeVoidAsync("clipboardCopy.setOnClickCopyText", _url, "copy-button");
   }
 }

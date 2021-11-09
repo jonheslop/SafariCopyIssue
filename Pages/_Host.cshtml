@@ -15,14 +15,6 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link href="css/site.css" rel="stylesheet" />
     <link href="SafariCopyIssue.styles.css" rel="stylesheet" />
-    
-    <script>
-      function SetCopyUrl(url, id) {
-        const button = document.getElementById(id)
-        button.onclick = _ => clipboardCopy.copyText(url)
-      }
-      
-    </script>
 </head>
 <body>
     <component type="typeof(App)" render-mode="ServerPrerendered" />
@@ -50,7 +42,11 @@
                   console.error(error);
                   alert(error);
               });
-          }
+          },
+          setOnClickCopyText: function (text, elementId) {
+                const button = document.getElementById(elementId)
+                button.onclick = _ => clipboardCopy.copyText(text)
+            }
       };
     </script>
 </body>
